@@ -36,7 +36,10 @@ async function connectOracle() {
         console.error("❌ OracleDB Error:", err);
     }
 }
-connectOracle();
+// connectOracle();
+if (process.env.NODE_ENV !== 'production') {
+  connectOracle(); // only run in local/dev
+}
 
 // Routes
 app.use("/api/auth", require("./routes/auth"));

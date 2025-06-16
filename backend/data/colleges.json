@@ -1,0 +1,102 @@
+[
+  {
+    "name": "NID Ahmedabad",
+    "location": "India",
+    "field": "Design"
+  },
+  {
+    "name": "MIT Institute of Design",
+    "location": "India",
+    "field": "Engineering"
+  },
+  {
+    "name": "MIT Institute of Design 2",
+    "location": "India",
+    "field": "Technology"
+  },
+  {
+    "name": "AIIMS Delhi",
+    "location": "India",
+    "field": "Healthcare"
+  },
+  {
+    "name": "Johns Hopkins University",
+    "location": "USA",
+    "field": "Healthcare"
+  },
+  {
+    "name": "Stanford University",
+    "location": "USA",
+    "field": "Design"
+  },
+  {
+    "name": "IIT Bombay",
+    "location": "India",
+    "field": "Engineering"
+  },
+  {
+    "name": "Harvard University",
+    "location": "USA",
+    "field": "Business"
+  },
+  {
+    "name": "National Institute of Mental Health and Neurosciences (NIMHANS)",
+    "location": "India",
+    "field": "Healthcare"
+  },
+  {
+    "name": "Rhode Island School of Design",
+    "location": "USA",
+    "field": "Design"
+  },
+  {
+    "name": "Indian School of Business (ISB)",
+    "location": "India",
+    "field": "Business"
+  },
+  {
+    "name": "University of Toronto",
+    "location": "Canada",
+    "field": "Technology"
+  },
+  {
+    "name": "Oxford University",
+    "location": "UK",
+    "field": "Healthcare"
+  },
+  {
+    "name": "Carnegie Mellon University",
+    "location": "USA",
+    "field": "Technology"
+  },
+  {
+    "name": "IIM Ahmedabad",
+    "location": "India",
+    "field": "Business"
+  },
+  {
+    "name": "Srishti Institute of Art, Design and Technology",
+    "location": "India",
+    "field": "Design"
+  },
+  {
+    "name": "University of Waterloo",
+    "location": "Canada",
+    "field": "Engineering"
+  },
+  {
+    "name": "University of Cambridge",
+    "location": "UK",
+    "field": "Engineering"
+  },
+  {
+    "name": "Tata Institute of Social Sciences (TISS)",
+    "location": "India",
+    "field": "Healthcare"
+  },
+  {
+    "name": "California Institute of Technology (Caltech)",
+    "location": "USA",
+    "field": "Technology"
+  }
+]

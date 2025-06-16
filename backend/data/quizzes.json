@@ -1,0 +1,102 @@
+[
+  {
+    "question": "Which of these activities would you enjoy the most?",
+    "options": [
+      {
+        "text": "Solving technical problems",
+        "description": "Working with computers and creating digital solutions",
+        "category": "tech"
+      },
+      {
+        "text": "Designing and creating",
+        "description": "Expressing ideas through visual arts and design",
+        "category": "creative"
+      },
+      {
+        "text": "Helping others",
+        "description": "Providing care and support to improve people's lives",
+        "category": "healthcare"
+      },
+      {
+        "text": "Leading and organizing",
+        "description": "Managing projects and making strategic decisions",
+        "category": "business"
+      }
+    ]
+  },
+  {
+    "question": "What environment would you prefer to work in?",
+    "options": [
+      {
+        "text": "Modern office with technology",
+        "description": "Working with the latest digital tools and frameworks",
+        "category": "tech"
+      },
+      {
+        "text": "Creative studio space",
+        "description": "Flexible and inspiring space for innovation",
+        "category": "creative"
+      },
+      {
+        "text": "Hospitals or care facilities",
+        "description": "Helping people in need through hands-on support",
+        "category": "healthcare"
+      },
+      {
+        "text": "Corporate business setting",
+        "description": "Structured environment for planning and leadership",
+        "category": "business"
+      }
+    ]
+  },
+  {
+    "question": "Which skill would you most like to develop?",
+    "options": [
+      {
+        "text": "Programming or system design",
+        "description": "Understanding how technology works and building it",
+        "category": "tech"
+      },
+      {
+        "text": "Creative expression",
+        "description": "Using your imagination to create something unique",
+        "category": "creative"
+      },
+      {
+        "text": "Empathy and communication",
+        "description": "Improving your ability to understand and help others",
+        "category": "healthcare"
+      },
+      {
+        "text": "Leadership and management",
+        "description": "Organizing people and resources effectively",
+        "category": "business"
+      }
+    ]
+  },
+  {
+    "question": "What motivates you the most?",
+    "options": [
+      {
+        "text": "Solving difficult technical challenges",
+        "description": "Breaking down complex systems and fixing them",
+        "category": "tech"
+      },
+      {
+        "text": "Creating something visually appealing",
+        "description": "Designing graphics, art, or animations",
+        "category": "creative"
+      },
+      {
+        "text": "Making a positive impact on others' lives",
+        "description": "Helping and supporting people through service",
+        "category": "healthcare"
+      },
+      {
+        "text": "Achieving goals and influencing people",
+        "description": "Strategizing and leading to meet big objectives",
+        "category": "business"
+      }
+    ]
+  }
+]

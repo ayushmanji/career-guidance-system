@@ -1,0 +1,17 @@
+{
+  "name": "Ayushman",
+  "quizProgress": 65,
+  "suggestions": [
+    { "title": "Data Analyst", "match": 87 },
+    { "title": "UX/UI Designer", "match": 92 }
+  ],
+  "activity": [
+    { "text": "Completed Personality Assessment", "time": "2 days ago" }
+  ],
+  "insights": {
+    "Technology": 85,
+    "Creativity": 72,
+    "Leadership": 65,
+    "Analysis": 78
+  }
+}

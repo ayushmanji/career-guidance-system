@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Suggestions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="min-h-screen p-4 md:p-8">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="mb-8 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Career Suggestions</h1>
+      <p class="text-gray-600 text-lg">Discover career paths that match your interests and skills</p>
+    </div>
+
+    <!-- Search and Filter Section -->
+    <div class="mb-8">
+      <!-- Search Bar -->
+      <div class="search-container mb-6">
+        
+        <input type="text" id="search-input"
+          class="search-input w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent shadow-sm"
+          placeholder="Search for careers...">
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="flex flex-wrap gap-2 mb-2">
+        <button class="filter-btn active px-4 py-2 rounded-lg text-sm font-medium" data-filter="all">All
+          Careers</button>
+        <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium" data-filter="technology">Technology</button>
+        <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium" data-filter="creative">Creative</button>
+        <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium" data-filter="healthcare">Healthcare</button>
+        <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium" data-filter="business">Business</button>
+        <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium" data-filter="education">Education</button>
+      </div>
+      <p class="text-sm text-gray-500" id="results-count">Showing all 12 careers</p>
+    </div>
+
+    <!-- No Results Message -->
+    <div id="no-results" class="no-results">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-400 mx-auto mb-4" fill="none"
+        viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <h3 class="text-xl font-semibold text-gray-700 mb-2">No careers found</h3>
+      <p class="text-gray-500">Try adjusting your search or filter criteria</p>
+    </div>
+
+    <!-- Career Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="career-grid">
+
+    </div>
+  </div>
+
+  <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'94c035fa816e8ae5',t:'MTc0OTI5OTk1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    const grid = document.getElementById('career-grid');
+    const resultsCount = document.getElementById('results-count');
+    const noResults = document.getElementById('no-results');
+    const searchInput = document.getElementById('search-input');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+
+    // Fetch careers from backend
+    const res = await fetch('http://localhost:5000/api/careers');
+    const careers = await res.json();
+    console.log("Careers fetched:", careers);
+
+    // Render career cards
+    careers.forEach(career => {
+      const card = document.createElement('div');
+      card.className = "career-card bg-white rounded-xl shadow-md overflow-hidden relative";
+      card.setAttribute('data-category', (career.category || 'all').toLowerCase());
+
+      card.innerHTML = `
+      <div class="p-6">
+        <div class="icon-container bg-blue-100 mx-auto mb-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          </svg>
+        </div>
+        <div class="salary-badge bg-green-100 text-green-800">${career.avg_salary || 'N/A'}</div>
+        <h2 class="text-xl font-bold text-gray-800 mb-2">${career.title}</h2>
+        <p class="text-gray-600 mb-4">${career.description}</p>
+        <div class="mb-4">
+          <h3 class="text-sm font-semibold text-gray-700 mb-2">Required Skills:</h3>
+          <div>
+            ${(career.skills || []).map(skill =>
+        `<span class="skill-tag bg-blue-100 text-blue-800 mr-1">${skill}</span>`
+      ).join('')}
+          </div>
+        </div>
+      </div>
+    `;
+      grid.appendChild(card);
+    });
+
+    // Now that cards exist, grab them
+    const careerCards = document.querySelectorAll('.career-card');
+
+    function filterCareers() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const activeFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
+      let visibleCount = 0;
+
+      careerCards.forEach(card => {
+        const title = card.querySelector('h2')?.textContent.toLowerCase() || '';
+        const description = card.querySelector('p')?.textContent.toLowerCase() || '';
+        const category = card.dataset.category || 'all';
+
+        const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+        const matchesCategory = activeFilter === 'all' || category === activeFilter;
+
+        if (matchesSearch && matchesCategory) {
+          card.style.display = 'block';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      resultsCount.textContent = `Showing ${visibleCount} career${visibleCount !== 1 ? 's' : ''}`;
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+
+    // Hook up event listeners
+    searchInput.addEventListener('input', filterCareers);
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        filterCareers();
+      });
+    });
+
+    // Run initial filter
+    filterCareers();
+  });
+</script>
+
+
+</html>

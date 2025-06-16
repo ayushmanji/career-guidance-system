@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Path Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4">
+    <div class="quiz-container bg-white rounded-2xl shadow-xl p-6 md:p-8 w-full">
+        <!-- Quiz Header -->
+        <div class="mb-8">
+            <div class="flex justify-between items-center mb-2">
+                <h2 class="text-lg font-semibold text-indigo-800">Career Path Quiz</h2>
+                <span class="text-sm font-medium text-gray-600" id="question-counter">Question 3 of 10</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" id="progress-bar" style="width: 30%;"></div>
+            </div>
+        </div>
+
+        <!-- Question Section -->
+        <div id="question-container" class="mb-8">
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Which of these activities would you enjoy
+                doing the most?</h1>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Option 1 -->
+                <div class="option-card rounded-xl border-2 border-gray-200 p-4" data-option="tech">
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg text-gray-800">Solving technical problems</h3>
+                            <p class="text-gray-600 mt-1">Working with computers and creating digital solutions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Option 2 -->
+                <div class="option-card rounded-xl border-2 border-gray-200 p-4" data-option="creative">
+                    <div class="flex items-start">
+                        <div class="bg-purple-100 p-3 rounded-full mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg text-gray-800">Designing and creating</h3>
+                            <p class="text-gray-600 mt-1">Expressing ideas through visual arts and design</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Option 3 -->
+                <div class="option-card rounded-xl border-2 border-gray-200 p-4" data-option="healthcare">
+                    <div class="flex items-start">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg text-gray-800">Helping others</h3>
+                            <p class="text-gray-600 mt-1">Providing care and support to improve people's lives</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Option 4 -->
+                <div class="option-card rounded-xl border-2 border-gray-200 p-4" data-option="business">
+                    <div class="flex items-start">
+                        <div class="bg-amber-100 p-3 rounded-full mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-amber-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg text-gray-800">Leading and organizing</h3>
+                            <p class="text-gray-600 mt-1">Managing projects and making strategic decisions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="flex justify-between items-center">
+            <button id="prev-btn"
+                class="px-5 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300 transition-all">
+                Previous
+            </button>
+            <button id="next-btn"
+                class="next-btn px-6 py-2 bg-indigo-600 text-white rounded-lg font-medium flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled>
+                Next
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                        clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Results Modal (Hidden by default) -->
+    <div id="results-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4">
+            <div class="text-center">
+                <div class="inline-block p-4 bg-indigo-100 rounded-full mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-indigo-600" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">Your Results</h2>
+                <p class="text-gray-600 mb-6">Based on your answers, we think you might enjoy:</p>
+
+                <div id="result-career" class="bg-indigo-50 p-4 rounded-xl mb-6">
+                    <h3 class="text-xl font-semibold text-indigo-800">Technology & IT</h3>
+                    <p class="text-gray-700">You seem to enjoy problem-solving and working with technology!</p>
+                </div>
+
+                <button id="restart-btn"
+                    class="px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-all">
+                    Take Quiz Again
+                </button>
+                <!-- Submit & Go to Dashboard -->
+                <button id="submit-quiz-btn"
+                    class="px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition-all">
+                    Submit
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data
+        let quizData = [];
+
+        async function loadQuizData() {
+            try {
+                const res = await fetch("http://localhost:5000/api/quiz");
+                quizData = await res.json();
+                initQuiz();
+            } catch (err) {
+                alert("⚠️ Failed to load quiz questions.");
+                console.error(err);
+            }
+        }
+
+
+        // Track current question and answers
+        let currentQuestion = 0;
+        let selectedAnswers = [];
+        let selectedOption = null;
+
+        // DOM elements
+        const questionCounter = document.getElementById('question-counter');
+        const progressBar = document.getElementById('progress-bar');
+        const questionContainer = document.getElementById('question-container');
+        const nextBtn = document.getElementById('next-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const optionCards = document.querySelectorAll('.option-card');
+        const resultsModal = document.getElementById('results-modal');
+        const resultCareer = document.getElementById('result-career');
+        const restartBtn = document.getElementById('restart-btn');
+        const submitQuizBtn = document.getElementById('submit-quiz-btn');
+
+        submitQuizBtn.addEventListener('click', () => {
+            showResults(); // run logic to send data
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 1000); // wait a second to let fetch finish (optional)
+        });
+
+
+        // Initialize the quiz
+        function initQuiz() {
+            updateQuestion();
+            updateProgressBar();
+
+            // Add event listeners to option cards
+            optionCards.forEach(card => {
+                card.addEventListener('click', () => selectOption(card));
+            });
+
+            // Add event listeners to navigation buttons
+            nextBtn.addEventListener('click', nextQuestion);
+            prevBtn.addEventListener('click', prevQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+
+            // Update previous button state
+            updatePrevButtonState();
+        }
+
+        // Select an option
+        function selectOption(card) {
+            // Remove selected class from all cards
+            optionCards.forEach(c => c.classList.remove('selected'));
+
+            // Add selected class to clicked card
+            card.classList.add('selected');
+
+            // Enable next button
+            nextBtn.disabled = false;
+
+            // Store the selected option
+            selectedOption = card.dataset.option;
+        }
+
+        // Update the question and options
+        function updateQuestion() {
+            // Update question counter
+            questionCounter.textContent = `Question ${currentQuestion + 1} of ${quizData.length}`;
+
+            // Get current question data
+            const currentQuestionData = quizData[currentQuestion];
+
+            // Update question text
+            questionContainer.querySelector('h1').textContent = currentQuestionData.question;
+
+            // Check if we have a previously selected answer for this question
+            if (selectedAnswers[currentQuestion]) {
+                // Find the card with the matching category
+                optionCards.forEach(card => {
+                    if (card.dataset.option === selectedAnswers[currentQuestion]) {
+                        card.classList.add('selected');
+                        selectedOption = card.dataset.option;
+                        nextBtn.disabled = false;
+                    } else {
+                        card.classList.remove('selected');
+                    }
+                });
+            } else {
+                // No previous selection
+                optionCards.forEach(card => card.classList.remove('selected'));
+                selectedOption = null;
+                nextBtn.disabled = true;
+            }
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Update previous button state
+        function updatePrevButtonState() {
+            prevBtn.style.visibility = currentQuestion === 0 ? 'hidden' : 'visible';
+        }
+
+        // Go to next question
+        function nextQuestion() {
+            if (selectedOption) {
+                // Save the selected answer
+                selectedAnswers[currentQuestion] = selectedOption;
+
+                if (currentQuestion < quizData.length - 1) {
+                    // Go to next question
+                    currentQuestion++;
+                    selectedOption = null;
+                    updateQuestion();
+                    updateProgressBar();
+                    updatePrevButtonState();
+                    nextBtn.disabled = true;
+                } else {
+                    // Show results
+                    showResults();
+                }
+            }
+        }
+
+        // Go to previous question
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                updateQuestion();
+                updateProgressBar();
+                updatePrevButtonState();
+            }
+        }
+
+        // Show quiz results
+        function showResults() {
+            const token = localStorage.getItem('token');
+
+            // Count category frequencies
+            const categoryCounts = {
+                tech: 0,
+                creative: 0,
+                healthcare: 0,
+                business: 0
+            };
+
+            selectedAnswers.forEach(answer => {
+                if (answer in categoryCounts) {
+                    categoryCounts[answer]++;
+                }
+            });
+
+            // Find the most frequent category
+            let topCategory = 'tech';
+            let maxCount = 0;
+
+            for (const [category, count] of Object.entries(categoryCounts)) {
+                if (count > maxCount) {
+                    maxCount = count;
+                    topCategory = category;
+                }
+            }
+
+            // Set result text
+            let resultTitle = '', resultDescription = '', suggestions = [], insights = {};
+
+            switch (topCategory) {
+                case 'tech':
+                    resultTitle = "Technology & IT";
+                    resultDescription = "You seem to enjoy problem-solving and working with technology!";
+                    suggestions = [
+                        { title: "Software Developer", match: 95 },
+                        { title: "IT Support Specialist", match: 89 }
+                    ];
+                    insights = {
+                        Technology: 90,
+                        Creativity: 60,
+                        Leadership: 50,
+                        Analysis: 80
+                    };
+                    break;
+                case 'creative':
+                    resultTitle = "Design & Creative Arts";
+                    resultDescription = "You have a natural talent for creative expression and design!";
+                    suggestions = [
+                        { title: "Graphic Designer", match: 91 },
+                        { title: "UX/UI Designer", match: 87 }
+                    ];
+                    insights = {
+                        Technology: 55,
+                        Creativity: 90,
+                        Leadership: 60,
+                        Analysis: 65
+                    };
+                    break;
+                case 'healthcare':
+                    resultTitle = "Healthcare & Helping Professions";
+                    resultDescription = "You're compassionate and enjoy making a difference in people's lives!";
+                    suggestions = [
+                        { title: "Nurse", match: 93 },
+                        { title: "Physiotherapist", match: 88 }
+                    ];
+                    insights = {
+                        Technology: 50,
+                        Creativity: 65,
+                        Leadership: 70,
+                        Analysis: 75
+                    };
+                    break;
+                case 'business':
+                    resultTitle = "Business & Leadership";
+                    resultDescription = "You have strong organizational skills and leadership potential!";
+                    suggestions = [
+                        { title: "Project Manager", match: 92 },
+                        { title: "Entrepreneur", match: 86 }
+                    ];
+                    insights = {
+                        Technology: 65,
+                        Creativity: 60,
+                        Leadership: 90,
+                        Analysis: 70
+                    };
+                    break;
+            }
+
+            // Update UI
+            resultCareer.querySelector('h3').textContent = resultTitle;
+            resultCareer.querySelector('p').textContent = resultDescription;
+
+            // Show modal
+            resultsModal.classList.remove('hidden');
+
+            // Create confetti effect
+            createConfetti();
+
+            // ✅ Submit results to backend
+            fetch("http://localhost:5000/api/user/update-dashboard", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    quizProgress: Math.floor((selectedAnswers.length / quizData.length) * 100),
+                    suggestions,
+                    activity: [
+                        { text: "Completed Career Quiz", time: "Just now" }
+                    ],
+                    insights
+                })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log("✅ Quiz submitted and dashboard updated:", data);
+                    // Optional: redirect automatically
+                    // setTimeout(() => window.location.href = 'dashboard.html', 2000);
+                })
+                .catch(err => console.error("❌ Failed to submit quiz results", err));
+        }
+
+        // Create confetti effect
+        function createConfetti() {
+            const colors = ['#4f46e5', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981'];
+            const confettiCount = 100;
+
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = -20 + 'px';
+                confetti.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
+
+                document.body.appendChild(confetti);
+
+                // Animate confetti
+                const animation = confetti.animate(
+                    [
+                        { transform: 'translateY(0) rotate(0)', opacity: 1 },
+                        { transform: 'translateY(' + (Math.random() * 500 + 200) + 'px) rotate(' + (Math.random() * 360) + 'deg)', opacity: 0 }
+                    ],
+                    {
+                        duration: Math.random() * 3000 + 2000,
+                        easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
+                    }
+                );
+
+                animation.onfinish = () => {
+                    confetti.remove();
+                };
+            }
+        }
+
+        // Restart the quiz
+        function restartQuiz() {
+            currentQuestion = 0;
+            selectedAnswers = [];
+            selectedOption = null;
+
+            updateQuestion();
+            updateProgressBar();
+            updatePrevButtonState();
+
+            resultsModal.classList.add('hidden');
+        }
+
+        // Load from backend and then start
+        loadQuizData();
+
+    </script>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'94bfefb62419599f',t:'MTc0OTI5NzA3NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>

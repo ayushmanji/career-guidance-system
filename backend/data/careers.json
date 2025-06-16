@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Software Developer",
+    "description": "Develops web and software applications.",
+    "skills": ["JavaScript", "Problem Solving"],
+    "avg_salary": "₹6-12 LPA",
+    "category": "technology"
+  },
+  {
+    "title": "Graphic Designer",
+    "description": "Creates visuals for branding and marketing.",
+    "skills": ["Photoshop", "Creativity"],
+    "avg_salary": "₹3-6 LPA",
+    "category": "creative"
+  },
+  {
+    "title": "Doctor",
+    "description": "Diagnoses and treats patients.",
+    "skills": ["Medical Knowledge", "Empathy"],
+    "avg_salary": "₹8-20 LPA",
+    "category": "healthcare"
+  }
+]

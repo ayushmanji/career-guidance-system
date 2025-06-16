@@ -1,0 +1,18 @@
+my file structure like this:
+
+.vscode
+backend/data/careears.json and quizzes.json and dashboard.json
+backend/db
+backend/middleware/authMiddleware.js
+backend/models/Career.js and Quiz.js and user.js
+backend/node_modules
+backend/routes/auth.js and careers.js and quiz.js and user.js
+backend/.env
+backend/package-lock.json
+backend/package.json
+backend/seed.js
+backend/server.js
+frontend
+node_modules
+package-lock.json
+package.json

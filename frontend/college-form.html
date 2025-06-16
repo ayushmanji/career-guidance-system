@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find the Right College</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f9ff;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+        }
+
+        .college-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .pulse {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="min-h-screen flex flex-col">
+        <!-- Header Section -->
+        <header class="gradient-bg text-white py-12 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-8 md:mb-0 md:mr-8">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4">Find the Right College for Your Career</h1>
+                    <p class="text-lg opacity-90 max-w-lg">Discover colleges that match your career goals and
+                        preferences. Your future starts with the right education.</p>
+                </div>
+                <div class="w-48 h-48 flex-shrink-0">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                        <path fill="#FFFFFF" d="M100,20 L160,50 L160,110 L100,140 L40,110 L40,50 Z" opacity="0.9" />
+                        <path fill="#FFFFFF" d="M100,20 L100,60 L40,90 L40,50 Z" opacity="0.7" />
+                        <path fill="#FFFFFF" d="M100,20 L100,60 L160,90 L160,50 Z" opacity="0.8" />
+                        <path fill="#FFFFFF" d="M100,140 L100,100 L40,70 L40,110 Z" opacity="0.75" />
+                        <path fill="#FFFFFF" d="M100,140 L100,100 L160,70 L160,110 Z" opacity="0.85" />
+                        <circle cx="100" cy="170" r="10" fill="#FFFFFF" opacity="0.9" />
+                        <rect x="90" y="140" width="20" height="30" fill="#FFFFFF" opacity="0.9" />
+                        <circle cx="80" cy="80" r="8" fill="#0ea5e9" />
+                        <circle cx="120" cy="80" r="8" fill="#0ea5e9" />
+                        <path d="M85,100 Q100,115 115,100" stroke="#0ea5e9" stroke-width="3" fill="none" />
+                    </svg>
+                </div>
+            </div>
+        </header>
+
+        <!-- Search Section -->
+        <div class="bg-white py-8 px-4 sm:px-6 lg:px-8 shadow-md">
+            <div class="max-w-5xl mx-auto">
+                <div class="flex flex-col md:flex-row gap-4 items-end">
+                    <div class="w-full md:w-2/3">
+                        <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Where do you want to
+                            study?</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-map-marker-alt text-gray-400"></i>
+                            </div>
+                            <input type="text" id="location"
+                                class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500"
+                                placeholder="Enter country, city, or region">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/3">
+                        <button id="findColleges"
+                            class="w-full bg-sky-500 hover:bg-sky-600 text-white font-medium py-3 px-4 rounded-lg transition duration-200 flex items-center justify-center">
+                            <i class="fas fa-search mr-2"></i>
+                            Find Colleges
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="flex-grow py-10 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto">
+                <div id="resultsContainer" class="hidden">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Recommended Colleges</h2>
+                    <div id="collegeResults" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- College cards will be inserted here -->
+                    </div>
+                </div>
+
+                <div id="loadingState" class="hidden text-center py-12">
+                    <div class="inline-block">
+                        <svg class="animate-spin h-12 w-12 text-sky-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                            </circle>
+                            <path class="opacity-75" fill="currentColor"
+                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                            </path>
+                        </svg>
+                    </div>
+                    <p class="mt-4 text-lg text-gray-600">Searching for colleges...</p>
+                </div>
+
+                <div id="noResults" class="hidden text-center py-12">
+                    <div class="inline-block p-4 rounded-full bg-gray-100 mb-4">
+                        <svg class="h-16 w-16 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-700 mb-2">No Colleges Found</h3>
+                    <p class="text-gray-500 max-w-md mx-auto">Try adjusting your search criteria or explore different
+                        locations.</p>
+                </div>
+
+                <div id="initialState" class="text-center py-12">
+                    <div class="inline-block p-6 rounded-full bg-sky-50 mb-6">
+                        <svg class="h-20 w-20 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-700 mb-2">Start Your College Search</h3>
+                    <p class="text-gray-500 max-w-md mx-auto">Enter a location above and click "Find Colleges" to
+                        discover institutions that match your preferences.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-6 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto text-center text-sm">
+                <p>© 2023 Career Guidance Platform. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const findCollegesBtn = document.getElementById('findColleges');
+            const locationInput = document.getElementById('location');
+            const resultsContainer = document.getElementById('resultsContainer');
+            const collegeResults = document.getElementById('collegeResults');
+            const loadingState = document.getElementById('loadingState');
+            const noResults = document.getElementById('noResults');
+            const initialState = document.getElementById('initialState');
+
+            let colleges = [];
+
+            // 🧠 Mapping from quiz result category to college field
+            const insightKeyToFieldMap = {
+                "technology": "Engineering",
+                "creativity": "Design",
+                "leadership": "Business",
+                "analysis": "Engineering" // or make it "Data Science" if supported
+            };
+
+
+
+            // Fetch real data from backend based on location + quiz results
+            async function fetchCollegesByUserField(location) {
+                const token = localStorage.getItem('token');
+                let field = 'Engineering'; // fallback if logic fails
+
+                // Map actual insight keys (e.g., "Creativity") to college fields
+                const insightKeyToFieldMap = {
+                    "technology": "Engineering",
+                    "creativity": "Design",
+                    "leadership": "Business",
+                    "analysis": "Engineering"
+                };
+
+                try {
+                    const res = await fetch("http://localhost:5000/api/user/dashboard", {
+                        headers: { Authorization: `Bearer ${token}` }
+                    });
+
+                    const data = await res.json();
+                    const insights = data.insights || {};
+
+                    if (Object.keys(insights).length === 0) {
+                        console.warn("⚠️ No insights found for this user.");
+                    } else {
+                        // Get highest scoring category from insights
+                        const topInsight = Object.keys(insights).reduce((a, b) => insights[a] > insights[b] ? a : b);
+                        const mapped = insightKeyToFieldMap[topInsight.toLowerCase()];
+                        if (mapped) {
+                            field = mapped;
+                        }
+
+                        console.log("📊 User insights:", insights);
+                        console.log("🏆 Top insight:", topInsight);
+                        console.log("🎯 Mapped field to search:", field);
+                    }
+
+                } catch (err) {
+                    console.error("❌ Error fetching user dashboard:", err);
+                }
+
+                // ✅ This line should now use the CORRECT dynamic field!
+                const colRes = await fetch(`http://localhost:5000/api/colleges?location=${location}&field=${field}`);
+                colleges = await colRes.json();
+            }
+
+
+            // 🏫 Build card for each college
+            function createCollegeCard(college) {
+                const colorClasses = {
+                    blue: "bg-blue-100 text-blue-800",
+                    red: "bg-red-100 text-red-800",
+                    green: "bg-green-100 text-green-800",
+                    purple: "bg-purple-100 text-purple-800",
+                    orange: "bg-orange-100 text-orange-800",
+                    teal: "bg-teal-100 text-teal-800"
+                };
+
+                const card = document.createElement('div');
+                card.className = 'college-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300';
+
+                card.innerHTML = `
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800">${college.name}</h3>
+                        <div class="flex items-center bg-sky-50 text-sky-700 px-2 py-1 rounded-md text-sm">
+                            <i class="fas fa-star mr-1"></i>
+                            <span>${college.rating || '4.5'}</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center text-gray-600 mb-4">
+                        <i class="fas fa-map-marker-alt mr-2"></i>
+                        <span>${college.location}</span>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="text-sm text-gray-500 mb-2">Field of Study</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="${colorClasses[college.color || 'blue']} text-xs px-2 py-1 rounded-full">${college.field}</span>
+                        </div>
+                    </div>
+
+                    <button class="mt-2 w-full bg-white border border-sky-500 text-sky-600 hover:bg-sky-50 font-medium py-2 px-4 rounded-lg transition duration-200">
+                        View Details
+                    </button>
+                </div>
+            `;
+                return card;
+            }
+
+            // 🔍 On button click, fetch & display results
+            findCollegesBtn.addEventListener('click', async function () {
+                const searchTerm = locationInput.value.trim().toLowerCase();
+
+                initialState.classList.add('hidden');
+                resultsContainer.classList.add('hidden');
+                noResults.classList.add('hidden');
+                loadingState.classList.remove('hidden');
+
+                await fetchCollegesByUserField(searchTerm);
+
+                loadingState.classList.add('hidden');
+
+                if (colleges.length > 0) {
+                    collegeResults.innerHTML = '';
+                    colleges.forEach(college => {
+                        collegeResults.appendChild(createCollegeCard(college));
+                    });
+                    resultsContainer.classList.remove('hidden');
+                } else {
+                    noResults.classList.remove('hidden');
+                }
+            });
+
+            // 🔁 Enter key triggers search
+            locationInput.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    findCollegesBtn.click();
+                }
+            });
+        });
+    </script>
+
+
+
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'94fc2e5de4295996',t:'MTc0OTkyODc4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>

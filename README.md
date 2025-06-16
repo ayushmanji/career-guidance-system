@@ -74,7 +74,7 @@ Open frontend/index.html in your browser
 Email: admin@example.com
 Password: admin123
 ```
-ℹ️ This account is seeded via seed.js for admin access
+ℹ️ This admin account is seeded via `seed.js`. If you need to create more, update `backend/models/user.js` accordingly.
 
 ## 🌍 Deployment Links
 

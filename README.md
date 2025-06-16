@@ -105,6 +105,14 @@ node server.js
 Open frontend/index.html in your browser
 ```
 
+## 🧭 User Journey
+
+1. Register/Login  
+2. Take a quiz  
+3. See results & dashboard  
+4. Browse colleges  
+5. Admin can add/update/delete college info
+
 ## 💻 Tech Stack
 
 | Layer        | Technology                                 |

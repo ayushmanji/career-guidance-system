@@ -21,6 +21,53 @@ It also includes:
 
 ## ⚙️ Setup Instructions
 
+### 🧑‍💼 How to Use This Website as a User
+Anyone can explore the live project directly without installing anything:
+
+🌐 Frontend (Live Site)
+👉 https://career-guidance-system.netlify.app
+
+🧪 Try it out:
+- Click on Register to create a user account.
+- Take the career quiz to get personalized results.
+- View your dashboard with suggestions and insights.
+- Browse or filter the college list based on your interests.
+
+🔐 Admin Access:
+To manage colleges (Add/Update/Delete), login using:
+```bash
+Email: admin@example.com
+Password: admin123
+```
+This seeded admin user gives access to the admin panel.
+
+### 👩‍💻 How to Customize or Extend for Your Own Project
+Developers can fork or clone this project and customize it as per their needs.
+
+1) Fork or Clone
+```bash
+git clone https://github.com/ayushmanji/career-guidance-system.git
+cd career-guidance-system
+```
+
+2) Update Branding or Theme
+- Modify frontend/styles.css and HTML pages for your look & feel.
+- Change logo, text, or animations in index.html and others.
+
+3) Customize Data
+- Add/edit careers in backend/data/careers.json
+- Update quizzes in backend/data/quizzes.json
+- Add your own colleges dynamically via the Admin Panel.
+
+4) Backend Extension
+- Add new API routes in backend/routes/
+- Create new models in backend/models/
+
+5) Host Your Version
+- Deploy frontend on Netlify
+- Deploy backend on Render or any free Node.js host
+📘 Tip: Don't forget to update .env with your own database connection and secrets.
+
 ### 📦 Prerequisites
 - Node.js + npm
 - MongoDB (local or Atlas)
@@ -80,8 +127,8 @@ Password: admin123
 
 | Component              | Link                                                                 |
 |------------------------|----------------------------------------------------------------------|
-| 🔗 Frontend (Netlify)  | _Coming Soon_                                                        |
-| 🔗 Backend (Render)    | _Coming Soon_                                                        |
+| 🔗 Frontend (Netlify)  |	https://career-guidance-system.netlify.app                          |
+| 🔗 Backend (Render)    |  https://career-guidance-system-b3ct.onrender.com                    |
 | 📂 GitHub Repo         | [GitHub - ayushmanji/career-guidance-system](https://github.com/ayushmanji/career-guidance-system) |
 
 ## 📂 Folder Structure

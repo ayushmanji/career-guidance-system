@@ -9,9 +9,9 @@ const app = express();
 // Middleware
 // app.use(cors());
 app.use(cors({
-  origin: '*', // 👈 Allows requests from anywhere — good for development
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
+    origin: '*', // 👈 Allows requests from anywhere — good for development
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    //   credentials: true
 }));
 
 app.use(express.json());
@@ -44,7 +44,7 @@ async function connectOracle() {
 }
 // connectOracle();
 if (process.env.NODE_ENV !== 'production') {
-  connectOracle(); // only run in local/dev
+    connectOracle(); // only run in local/dev
 }
 
 // Routes

@@ -189,7 +189,8 @@
                 };
 
                 try {
-                    const res = await fetch("http://localhost:5000/api/user/dashboard", {
+                    // const res = await fetch("http://localhost:5000/api/user/dashboard", {
+                    const res = await fetch("https://career-guidance-system-b3ct.onrender.com/api/user/dashboard", {
                         headers: { Authorization: `Bearer ${token}` }
                     });
 
@@ -216,7 +217,8 @@
                 }
 
                 // ✅ This line should now use the CORRECT dynamic field!
-                const colRes = await fetch(`http://localhost:5000/api/colleges?location=${location}&field=${field}`);
+                // const colRes = await fetch(`http://localhost:5000/api/colleges?location=${location}&field=${field}`);
+                const colRes = await fetch(`https://career-guidance-system-b3ct.onrender.com/api/colleges?location=${location}&field=${field}`);
                 colleges = await colRes.json();
             }
 

@@ -157,7 +157,8 @@
 
         async function loadQuizData() {
             try {
-                const res = await fetch("http://localhost:5000/api/quiz");
+                // const res = await fetch("http://localhost:5000/api/quiz");
+                const res = await fetch("https://career-guidance-system-b3ct.onrender.com/api/quiz");
                 quizData = await res.json();
                 initQuiz();
             } catch (err) {
@@ -401,7 +402,8 @@
             createConfetti();
 
             // ✅ Submit results to backend
-            fetch("http://localhost:5000/api/user/update-dashboard", {
+            // fetch("http://localhost:5000/api/user/update-dashboard", {
+            fetch("https://career-guidance-system-b3ct.onrender.com/api/user/update-dashboard", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

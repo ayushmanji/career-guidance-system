@@ -331,7 +331,8 @@
         });
 
 
-        const API_URL = 'http://localhost:5000/api/admin/colleges';
+        // const API_URL = 'http://localhost:5000/api/admin/colleges';
+        const API_URL = 'https://career-guidance-system-b3ct.onrender.com/api/admin/colleges';
         let colleges = [];
         let currentCollegeIndex = null;
 
@@ -346,7 +347,8 @@
 
         async function loadAdminProfile() {
             try {
-                const res = await fetch('http://localhost:5000/api/user/profile', {
+                // const res = await fetch('http://localhost:5000/api/user/profile', {
+                const res = await fetch('https://career-guidance-system-b3ct.onrender.com/api/user/profile', {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }
@@ -382,7 +384,8 @@
 
         async function fetchColleges() {
             try {
-                const res = await fetch("http://localhost:5000/api/admin/colleges", {
+                // const res = await fetch("http://localhost:5000/api/admin/colleges", {
+                const res = await fetch("https://career-guidance-system-b3ct.onrender.com/api/admin/colleges", {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }
